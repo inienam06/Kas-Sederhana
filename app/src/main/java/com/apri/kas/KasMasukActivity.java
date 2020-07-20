@@ -1,6 +1,8 @@
 package com.apri.kas;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -40,6 +42,11 @@ public class KasMasukActivity extends AppCompatActivity implements KasMasukAdapt
 
     private void initView() {
         rvKasMasuk.setHasFixedSize(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         getData();
     }
 
@@ -81,5 +88,14 @@ public class KasMasukActivity extends AppCompatActivity implements KasMasukAdapt
                 })
                 .setNegativeButton("Tidak", (dialog, which) -> dialog.dismiss())
                 .show();
+    }
+
+    @Override
+    public void OnUpdateKasMasuk(int position) {
+        M_KasMasuk model = adapter.getModel(position);
+        startActivity(new Intent(this, UpdateKasActivity.class)
+                .putExtra("model", model)
+                .putExtra("tipe", "masuk")
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 }

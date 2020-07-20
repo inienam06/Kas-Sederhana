@@ -18,8 +18,16 @@
                 android:id="@+id/tvContentKasValue"
                 android:textSize="20sp"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/ivContentKasHapus"
+                android:layout_toStartOf="@id/ivContentKasUpdate"
                 android:layout_alignParentStart="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivContentKasUpdate"
+                android:src="@drawable/ic_baseline_update_24"
+                android:layout_toStartOf="@id/ivContentKasHapus"
+                android:layout_centerVertical="true"
+                android:padding="4dp"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -55,6 +55,7 @@ public class KasKeluarAdapter extends RecyclerView.Adapter<KasKeluarAdapter.Hold
 
     public interface OnClickListener {
         void OnRemoveKasKeluar(int position);
+        void OnUpdateKasKeluar(int position);
     }
 
     public void setOnClickListener(OnClickListener listener) {
@@ -66,6 +67,8 @@ public class KasKeluarAdapter extends RecyclerView.Adapter<KasKeluarAdapter.Hold
         TextView tvContentKasValue;
         @BindView(R.id.ivContentKasHapus)
         ImageView ivContentKasHapus;
+        @BindView(R.id.ivContentKasUpdate)
+        ImageView ivContentKasUpdate;
         @BindView(R.id.tvContentKasKeterangan)
         TextView tvContentKasKeterangan;
 
@@ -74,11 +77,20 @@ public class KasKeluarAdapter extends RecyclerView.Adapter<KasKeluarAdapter.Hold
             ButterKnife.bind(this, itemView);
 
             ivContentKasHapus.setOnClickListener(this);
+            ivContentKasUpdate.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            listener.OnRemoveKasKeluar(getAdapterPosition());
+            switch (v.getId()) {
+                case R.id.ivContentKasHapus:
+                    listener.OnRemoveKasKeluar(getAdapterPosition());
+                    break;
+
+                case R.id.ivContentKasUpdate:
+                    listener.OnUpdateKasKeluar(getAdapterPosition());
+                    break;
+            }
         }
     }
 }

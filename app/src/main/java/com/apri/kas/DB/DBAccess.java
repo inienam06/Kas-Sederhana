@@ -52,6 +52,14 @@ public class DBAccess {
                 " VALUES ('" + setIdKasKeluar() + "', '" + jumlah + "', '" + keterangan + "', '" + calendar.getTimeInMillis() + "')");
     }
 
+    public void updateKasMasuk(Integer jumlah, String keterangan, Integer id) {
+        database.execSQL("UPDATE " + TABLE_KAS_MASUK + " SET jumlah = " + jumlah + ", keterangan = '" + keterangan + "' WHERE id_kas_masuk = " + id);
+    }
+
+    public void updateKasKeluar(Integer jumlah, String keterangan, Integer id) {
+        database.execSQL("UPDATE " + TABLE_KAS_KELUAR + " SET jumlah = " + jumlah + ", keterangan = '" + keterangan + "' WHERE id_kas_keluar = " + id);
+    }
+
     public List<M_KasMasuk> getAllKasMasuk() {
         List<M_KasMasuk> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_KAS_MASUK + " ORDER BY tgl DESC", null);

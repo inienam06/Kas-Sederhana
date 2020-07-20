@@ -4,34 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahKasActivity"
+    tools:context=".UpdateKasActivity"
     android:padding="16dp">
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/pilih_tipe_kas"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            android:focusable="false"
-            android:id="@+id/actTambahKasMenu"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilJumlah"
+        android:id="@+id/tilUpdateJumlah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/jumlah"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilMenu"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -41,14 +24,14 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilKeterangan"
+        android:id="@+id/tilUpdateKeterangan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/keterangan"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilJumlah"
+        app:layout_constraintTop_toBottomOf="@id/tilUpdateJumlah"
         android:layout_marginTop="8dp">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -58,13 +41,13 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
     <Button
-        android:id="@+id/btnTambahKasSimpan"
+        android:id="@+id/btnUpdateKasSimpan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Simpan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilKeterangan"
+        app:layout_constraintTop_toBottomOf="@id/tilUpdateKeterangan"
         android:layout_marginTop="8dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

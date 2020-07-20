@@ -1,6 +1,8 @@
 package com.apri.kas.Models;
 
-public class M_KasMasuk {
+import java.io.Serializable;
+
+public class M_KasMasuk implements Serializable {
     private Integer id, jumlah;
     private String keterangan;
     private Long tgl;

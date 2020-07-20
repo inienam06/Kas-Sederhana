@@ -1,5 +1,6 @@
 package com.apri.kas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -41,6 +42,11 @@ public class KasKeluarActivity extends AppCompatActivity implements KasKeluarAda
 
     private void initView() {
         rvKasKeluar.setHasFixedSize(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         getData();
     }
 
@@ -82,5 +88,14 @@ public class KasKeluarActivity extends AppCompatActivity implements KasKeluarAda
                 })
                 .setNegativeButton("Tidak", (dialog, which) -> dialog.dismiss())
                 .show();
+    }
+
+    @Override
+    public void OnUpdateKasKeluar(int position) {
+        M_KasKeluar model = adapter.getModel(position);
+        startActivity(new Intent(this, UpdateKasActivity.class)
+                .putExtra("model", model)
+                .putExtra("tipe", "keluar")
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 }
